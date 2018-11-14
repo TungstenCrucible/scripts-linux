@@ -1,5 +1,8 @@
-# process
+## process
 ps axwwo args # printing whole command using 'ps' without truncating output
 
-# entertainment
+## networking
+netstat -tulpn # list which process is listening upon a port
+
+## entertainment
 youtube-dl --extract-audio --audio-format mp3 <video URL>
