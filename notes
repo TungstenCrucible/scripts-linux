@@ -4,5 +4,9 @@ ps axwwo args # printing whole command using 'ps' without truncating output
 ## networking
 netstat -tulpn # list which process is listening upon a port
 
+## debugging
+gdb <binary> <core-dump-file> # list full backtrace for all threads
+    (gdb) thread apply all bt full
+
 ## entertainment
 youtube-dl --extract-audio --audio-format mp3 <video URL>
