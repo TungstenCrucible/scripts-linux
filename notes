@@ -7,6 +7,10 @@ netstat -tulpn # list which process is listening upon a port
 ## debugging
 gdb <binary> <core-dump-file> # list full backtrace for all threads
     (gdb) thread apply all bt full
+gdb <binary> <core-dump-file> -ex "thread apply all bt full" -ex "quit" > gdb.log
+    
+## subversion
+svn checkout -r <revision-number> <repository-path> # checkout a specific revision
 
 ## entertainment
 youtube-dl --extract-audio --audio-format mp3 <video URL>
