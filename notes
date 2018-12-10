@@ -27,6 +27,12 @@ gdb) show debug-file-directory
   
 ## git
 cd svn-repo; svn diff > /tmp/dummy.patch; cd git-repo; patch -p0 < /tmp/dummy.patch # import changes from svn
+# print all remote branches
+  $ git branch -a | grep remotes/*
+  $ git branch -r 
+git checkout <branch_name> # changing branch
+git commit --amend -m "new commit message" # changing commit message
+
    
 ## subversion
 svn checkout -r <revision-number> <repository-path> # checkout a specific revision
