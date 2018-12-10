@@ -8,7 +8,26 @@ netstat -tulpn # list which process is listening upon a port
 gdb <binary> <core-dump-file> # list full backtrace for all threads
     (gdb) thread apply all bt full
 gdb <binary> <core-dump-file> -ex "thread apply all bt full" -ex "quit" > gdb.log
-    
+ulimit -c unlimited; ulimit -a; "/tmp/core.%e.%p" > /proc/sys/kernel/core_pattern # activating core dumps
+(gdb) x/100bx &password.str[0] # print fisrt 100 bytes of password variable
+(gdb) info file # checking if symbols were correctly loaded
+gdbtui || gdb -tui || press C-x C-a after entering gdb # running gdb with terminal user interface
+(gdb) symbol-file /path/to/your/file # loading symbols
+(gdb) info break; (gdb) del <index> # remove breakpoint selected by index 
+objdump --syms </path/to/your/file> # checking if binary has symbols
+(gdb) set print elements 0 # pritn will show whole values of std::string without truncating
+(gdb) print *(char**)0x7fffffffda88 # print string residing with given address
+kill -s SIGINT `pidof gdb` # send interrupt signal to application being executed by gdb (simulating breakpoint)
+gdb --args <binary-path> <binary-arg-1> <binary-arg-2> .... # debugging app with parameters
+gdb; (gdb) attach <process_ID> # attach to running process
+(gdb) set debug-file-directory <directories> # set the directories to search for separate debugging information (use path separator for multiple directories)
+(gdb) show debug-file-directory # print debug file directories
+Show the directories gdb searches for separate debugging information files
+gdb) show debug-file-directory
+  
+## git
+cd svn-repo; svn diff > /tmp/dummy.patch; cd git-repo; patch -p0 < /tmp/dummy.patch # import changes from svn
+   
 ## subversion
 svn checkout -r <revision-number> <repository-path> # checkout a specific revision
 
@@ -21,6 +40,10 @@ apt install -qy kubeadm=1.11.3-00 kubectl=1.11.3-00 kubelet=1.11.3-00 kubernetes
 kubectl scale deploy <deployment-name> --replicas=20 # scale to 20 replicas
 kubectl describe pods <pod-name> | grep -E "Ready\:|Restart Count" | sort | uniq -c # print Health status and restart count
 kubectl logs -f <pod> # tail
+
+## postgres
+SELECT * from pg_stats WHERE tablename LIKE '<prefix>%'; # statistics of tables
+SELECT relname, relkind, reltuples, relpages FROM pg_class WHERE relname LIKE '<prefix>%'; # estimated row counts
 
 ## entertainment
 youtube-dl --extract-audio --audio-format mp3 <video URL>
