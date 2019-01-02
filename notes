@@ -32,7 +32,6 @@ cd svn-repo; svn diff > /tmp/dummy.patch; cd git-repo; patch -p0 < /tmp/dummy.pa
   $ git branch -r 
 git checkout <branch_name> # changing branch
 git commit --amend -m "new commit message" # changing commit message
-
    
 ## subversion
 svn checkout -r <revision-number> <repository-path> # checkout a specific revision
@@ -41,6 +40,9 @@ svn checkout -r <revision-number> <repository-path> # checkout a specific revisi
 apt list --installed # list all installed packages
 apt-cache policy kubeadm # list all possible version of package (to be) installed
 apt install -qy kubeadm=1.11.3-00 kubectl=1.11.3-00 kubelet=1.11.3-00 kubernetes-cni=0.6.0-00 # install packages with specified versions
+
+## redhat / centos
+yum provides */sql.h # list packages containing certain file
 
 ## kubernetes
 kubectl scale deploy <deployment-name> --replicas=20 # scale to 20 replicas
