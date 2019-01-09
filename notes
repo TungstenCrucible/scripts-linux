@@ -59,3 +59,6 @@ youtube-dl --extract-audio --audio-format mp3 <video URL>
 ## rsync
 # backup (__BACKUP__) with directory (__DIFFS__) where all deleted and modified files are stored (within subdirectory containing date)
 (DATE=`date +%Y.%m.%d-%H:%M`; rsync -ab --delete --update --backup-dir=../__DIFFS__/$DATE --exclude __DIFFS__ src/ dest/__BACKUP__) 
+
+## bash
+while read LINE; do echo "$LINE"; done <file.txt
