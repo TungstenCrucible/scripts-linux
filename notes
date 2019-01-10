@@ -61,4 +61,4 @@ youtube-dl --extract-audio --audio-format mp3 <video URL>
 (DATE=`date +%Y.%m.%d-%H:%M`; rsync -ab --delete --update --backup-dir=../__DIFFS__/$DATE --exclude __DIFFS__ src/ dest/__BACKUP__) 
 
 ## bash
-while read LINE; do echo "$LINE"; done <file.txt
+while read LINE; do echo "$LINE"; done <file.txt # loop a file line by line
