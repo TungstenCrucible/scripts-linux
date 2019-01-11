@@ -62,6 +62,7 @@ youtube-dl --extract-audio --audio-format mp3 <video URL>
 
 ## ssh
 sshfs -o uid=$UID,gid=$GROUPS remote-user@<ip address>:/path/to/remote /local/path # mounting ssh share with currecnt user id and group
+fusermount -u /local/path # umount sshfs share
 
 ## rsync
 # backup (__BACKUP__) with directory (__DIFFS__) where all deleted and modified files are stored (within subdirectory containing date)
