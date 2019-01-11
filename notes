@@ -44,6 +44,10 @@ apt install -qy kubeadm=1.11.3-00 kubectl=1.11.3-00 kubelet=1.11.3-00 kubernetes
 ## redhat / centos
 yum provides */sql.h # list packages containing certain file
 
+## docker
+RUN echo "root:Docker!" | chpasswd          # change root user password
+RUN echo "Docker!" | passwd --stdin root    # change root user password
+
 ## kubernetes
 kubectl scale deploy <deployment-name> --replicas=20 # scale to 20 replicas
 kubectl describe pods <pod-name> | grep -E "Ready\:|Restart Count" | sort | uniq -c # print Health status and restart count
