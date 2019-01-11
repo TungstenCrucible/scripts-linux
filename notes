@@ -60,9 +60,13 @@ SELECT relname, relkind, reltuples, relpages FROM pg_class WHERE relname LIKE '<
 ## entertainment
 youtube-dl --extract-audio --audio-format mp3 <video URL>
 
+## ssh
+sshfs -o uid=$UID,gid=$GROUPS remote-user@<ip address>:/path/to/remote /local/path # mounting ssh share with currecnt user id and group
+
 ## rsync
 # backup (__BACKUP__) with directory (__DIFFS__) where all deleted and modified files are stored (within subdirectory containing date)
 (DATE=`date +%Y.%m.%d-%H:%M`; rsync -ab --delete --update --backup-dir=../__DIFFS__/$DATE --exclude __DIFFS__ src/ dest/__BACKUP__) 
 
 ## bash
 while read LINE; do echo "$LINE"; done <file.txt # loop a file line by line
+
