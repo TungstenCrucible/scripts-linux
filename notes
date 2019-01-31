@@ -77,3 +77,5 @@ while read LINE; do echo "$LINE"; done <file.txt # loop a file line by line
 show status where `variable_name` = 'Threads_connected'; # number of currently open connections
 show processlist; # list connections and their status
 
+## gnome-terminal
+gnome-terminal --working-directory=/P/trunk/Docker/deploy/scripts -- sh -c 'head deployment-create.sh; exec bash' # start bash session in given directory
