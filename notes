@@ -79,3 +79,6 @@ show processlist; # list connections and their status
 
 ## gnome-terminal
 gnome-terminal --working-directory=/P/trunk/Docker/deploy/scripts -- sh -c 'head deployment-create.sh; exec bash' # start bash session in given directory
+
+## vim
+w !sudo tee % # override readonly file using sudo without leaving editor
