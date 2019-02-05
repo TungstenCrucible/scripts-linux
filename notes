@@ -37,6 +37,19 @@ git commit --amend -m "new commit message" # changing commit message
 ## subversion
 svn checkout -r <revision-number> <repository-path> # checkout a specific revision
 
+## gnome
+# gnome autostart script
+    mkdir -p /home/$USER/.config/autostart/
+    cat << EOF > /home/$USER/.config/autostart/startup.desktop
+    [Desktop Entry]
+    Type=Application
+    Name=startup
+    Exec=/P/trunk/Docker/installation/ubuntu-1804/afterReboot.sh
+    Icon=/usr/share/seahorse/icons/hicolor/48x48/status/seahorse-sign.png
+    Comment=NOP
+    X-GNOME-Autostart-enabled=true
+    EOF
+
 ## debian / ubuntu
 apt list --installed # list all installed packages
 apt-cache policy kubeadm # list all possible version of package (to be) installed
