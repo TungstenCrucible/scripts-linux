@@ -95,3 +95,10 @@ gnome-terminal --working-directory=/P/trunk/Docker/deploy/scripts -- sh -c 'head
 
 ## vim
 w !sudo tee % # override readonly file using sudo without leaving editor
+
+## ffmpeg
+FILES=/i/vody/*
+for f in $FILES; do
+  echo "Processing $f file..."
+  ffmpeg-20180325-5b31dd1-win64-static/bin/ffmpeg -i "$f" -vcodec h264 -acodec mp3 "$f.compressed.mp4"
+done
