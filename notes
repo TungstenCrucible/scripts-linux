@@ -103,5 +103,15 @@ for f in $FILES; do
   ffmpeg-20180325-5b31dd1-win64-static/bin/ffmpeg -i "$f" -vcodec h264 -acodec mp3 "$f.compressed.mp4"
 done
 
-## valgrind / massif
-valgrind --tool=massif  --error-limit=no --stacks=yes --depth=200 --detailed-freq=1 --massif-out-file=mem.report <app-path> <app-args>
+## valgrind / massif / memcheck
+# massif
+    valgrind --tool=massif  --error-limit=no --stacks=yes --depth=200 --detailed-freq=1 --massif-out-file=mem.report <apph> <app-args>
+    sudo apt install massif-visualizer
+    massif-visualizer mem.report
+# memcheck
+    valgrind --tool=memcheck --num-callers=20 --log-file=vg.log --leak-check=full --track-origins=yes --error-limit=no --show-reachable=yes <app> <app-args>
+    valgrind --tool=memcheck --num-callers=20 --xml=yes --xml-file=vg.xml --leak-check=full --track-origins=yes --error-limit=no --show-reachable=yes <app> <app-args>
+    sudo apt-get install valkyrie
+    valkyrie vg.xml
+
+
