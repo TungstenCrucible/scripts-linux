@@ -112,6 +112,6 @@ done
     valgrind --tool=memcheck --num-callers=20 --log-file=vg.log --leak-check=full --track-origins=yes --error-limit=no --show-reachable=yes <app> <app-args>
     valgrind --tool=memcheck --num-callers=20 --xml=yes --xml-file=vg.xml --leak-check=full --track-origins=yes --error-limit=no --show-reachable=yes <app> <app-args>
     sudo apt-get install valkyrie
-    valkyrie vg.xml
+    valkyrie # click "Open Memcheck XML log" button and point to vg.xml file
 
 
