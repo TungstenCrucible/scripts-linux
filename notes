@@ -102,3 +102,6 @@ for f in $FILES; do
   echo "Processing $f file..."
   ffmpeg-20180325-5b31dd1-win64-static/bin/ffmpeg -i "$f" -vcodec h264 -acodec mp3 "$f.compressed.mp4"
 done
+
+## valgrind / massif
+valgrind --tool=massif  --error-limit=no --stacks=yes --depth=200 --detailed-freq=1 --massif-out-file=mem.report <app-path> <app-args>
