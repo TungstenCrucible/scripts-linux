@@ -108,10 +108,13 @@ done
     valgrind --tool=massif  --error-limit=no --stacks=yes --depth=200 --detailed-freq=1 --massif-out-file=mem.report <apph> <app-args>
     sudo apt install massif-visualizer
     massif-visualizer mem.report
-# memcheck
+# memcheck with log file
     valgrind --tool=memcheck --num-callers=20 --log-file=vg.log --leak-check=full --track-origins=yes --error-limit=no --show-reachable=yes <app> <app-args>
+# memcheck with xml file consumed by valkyrie
     valgrind --tool=memcheck --num-callers=20 --xml=yes --xml-file=vg.xml --leak-check=full --track-origins=yes --error-limit=no --show-reachable=yes <app> <app-args>
     sudo apt-get install valkyrie
     valkyrie # click "Open Memcheck XML log" button and point to vg.xml file
+# generate suppression file
+valgrind --tool=memcheck --num-callers=40 --leak-check=full --track-origins=yes --log-file=supp.log --show-reachable=yes --gen-suppressions=all <app> <app-args>
 
 
