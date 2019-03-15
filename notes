@@ -117,4 +117,5 @@ done
 # generate suppression file
 valgrind --tool=memcheck --num-callers=40 --leak-check=full --track-origins=yes --log-file=supp.log --show-reachable=yes --gen-suppressions=all <app> <app-args>
 
-
+# cmake
+cmake -DCMAKE_BUILD_TYPE=Debug . # cmake call for debug build type
