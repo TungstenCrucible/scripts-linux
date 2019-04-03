@@ -1,4 +1,5 @@
 #!/bin/bash -e
+# required dos2unix, bsdmainutils(column) and bc packages
 PROCESS_NAME=$1
 OUTPUT_DIR=$2
 
@@ -7,12 +8,12 @@ function get-process-id() {
     if [ -z "$STORED_PROCESS_ID" ] && [ -n "$PROCESS_ID" ]; then
         STORED_PROCESS_ID=$PROCESS_ID
         echo "Process '$PROCESS_NAME' is running"
-        if [ -z "$OUTPUT_DIR"]; then
+        if [ -z "$OUTPUT_DIR" ]; then
             get-time
             OUTPUT_DIR="$TIME-$PROCESS_ID"
-            echo "Setting output directory to: $OUTPUT_DIR"
-            mkdir $OUTPUT_DIR
         fi
+        echo "Setting output directory to: $OUTPUT_DIR"
+        mkdir -p $OUTPUT_DIR
     fi
 
     if [ -n "$STORED_PROCESS_ID" ] && [ -z "$PROCESS_ID" ]; then     
@@ -41,7 +42,7 @@ while true; do
 
             # get raw pmap output
             pmap -x $PROCESS_ID > $PMAP_TMP
-            dos2unix $PMAP_TMP &> /dev/null
+            dos2unix $PMAP_TMP &> /dev/null || { echo "dos2unix is not installed"; exit 1; }
             mv $PMAP_TMP $PMAP_RAW
 
             # generate report
