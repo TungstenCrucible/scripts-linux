@@ -3,7 +3,8 @@ ps axwwo args # printing whole command using 'ps' without truncating output
 
 ## sed
 
-sed -ni '/23\:15\:01/,$p' <file-name> # inplace removall of all the lines before the first line that contains a match
+sed -ni '/23\:15\:01/,$p' <file-name> # inplace removal of all the lines before the first line that contains a match
+sed -ni '/23\:17\:00/q;p' <file-name> # inplace removal of all the lines after the first line that contains a match
 
 ## networking
 apt install net-tools # install netstat
