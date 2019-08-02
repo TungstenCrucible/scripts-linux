@@ -1,6 +1,10 @@
 ## process
 ps axwwo args # printing whole command using 'ps' without truncating output
 
+## sed
+
+sed -ni '/23\:15\:01/,$p' <file-name> # inplace removall of all the lines before the first line that contains a match
+
 ## networking
 apt install net-tools # install netstat
 netstat -tulpn | grep LISTEN # list which process is listening upon a port
