@@ -42,6 +42,14 @@ git commit --amend -m "new commit message" # changing commit message
 ## subversion
 svn checkout -r <revision-number> <repository-path> # checkout a specific revision
 
+## regex
+"#6263-3.19.0.1507 (sanity)" move into 3 groups by using "(\#\d+)-(\d+\.\d+\.\d+\.\d+) (\(sanity\))" pattern
+# regex online page: https://regex101.com/
+    => Full match	0-26	#6263-3.19.0.1507 (sanity)
+    => Group 1.	0-5	    #6263
+    => Group 2.	6-17	3.19.0.1507
+    => Group 3.	18-26	(sanity)
+
 ## gnome
 # gnome autostart script
     mkdir -p /home/$USER/.config/autostart/
