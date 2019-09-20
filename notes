@@ -145,3 +145,5 @@ wget -N <url> # download if the file is newer
 wget -P <dir> <url> # download to <dir> and keep file name the same as it was on server
 wget -O <path> <url> # donwload and save file in <path>
 
+## jmeter
+jmeter -g test-result.jtl -o report/ # genereate html report in the report directory
