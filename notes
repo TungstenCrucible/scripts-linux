@@ -81,6 +81,11 @@ RUN echo "Docker!" | passwd --stdin root    # change root user password
 kubectl scale deploy <deployment-name> --replicas=20 # scale to 20 replicas
 kubectl describe pods <pod-name> | grep -E "Ready\:|Restart Count" | sort | uniq -c # print Health status and restart count
 kubectl logs -f <pod> # tail
+kubectl cp <ns>/<pod>:<remote path> <local path>  # copy file from the k8s pod locally
+# in case of tar error try to use relative location from Dockerfile WORKDIR perspective
+# for example: WORKDIR=/tmp/
+# if you want to copy file /tmp/my.log from the container you can just point to the file
+#    kubectl cp <ns>/<pod>:my.log .
 
 ## postgres
 SELECT * from pg_stats WHERE tablename LIKE '<prefix>%'; # statistics of tables
