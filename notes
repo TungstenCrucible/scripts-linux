@@ -147,3 +147,6 @@ wget -O <path> <url> # donwload and save file in <path>
 
 ## jmeter
 jmeter -g test-result.jtl -o report/ # genereate html report in the report directory
+
+## mysql | mariadb
+mysql -B -u <user> --password="<pwd>' -h <ip-address> -D "<database-name>" --disable-column-names --execute "select count(*) from <table-name>;"
