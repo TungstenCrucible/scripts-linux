@@ -41,6 +41,7 @@ git commit --amend -m "new commit message" # changing commit message
    
 ## subversion
 svn checkout -r <revision-number> <repository-path> # checkout a specific revision
+svn copy http://repo.url/trunk http://repo.url/branches/new-branch -m "created a new branch"
 
 ## regex
 "#6263-3.19.0.1507 (sanity)" move into 3 groups by using "(\#\d+)-(\d+\.\d+\.\d+\.\d+) (\(sanity\))" pattern
