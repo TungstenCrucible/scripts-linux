@@ -105,6 +105,7 @@ fusermount -u /local/path # umount sshfs share
 
 ## bash
 while read LINE; do echo "$LINE"; done <file.txt # loop a file line by line
+[ ! -z "${num##*[!0-9]*}" ] && echo "value is a number" || echo "value is not a number";
 
 ## mariadb / mysql
 show status where `variable_name` = 'Threads_connected'; # number of currently open connections
