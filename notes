@@ -50,6 +50,7 @@ svn copy http://repo.url/trunk http://repo.url/branches/new-branch -m "created a
     => Group 1.	0-5	    #6263
     => Group 2.	6-17	3.19.0.1507
     => Group 3.	18-26	(sanity)
+bash$ [[ $1 =~ ^[0-9]+$ ]] && echo "match" # check from the beggining (^) to the end ($) of the line if the value ($1) is a number (has one or more digits)
 
 ## gnome
 # gnome autostart script
