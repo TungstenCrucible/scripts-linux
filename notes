@@ -88,6 +88,11 @@ kubectl cp <ns>/<pod>:<remote path> <local path>  # copy file from the k8s pod l
 # for example: WORKDIR=/tmp/
 # if you want to copy file /tmp/my.log from the container you can just point to the file
 #    kubectl cp <ns>/<pod>:my.log .
+# the way to wait until service port is opened by using init-container
+initContainers:
+- name: w84-zookeeper
+  image: busybox:1.28
+  command: ['sh', '-c', 'until nc -vz zookeeper 2181 2>/dev/null; do echo waiting for zookeeper; sleep 2; done;']
 
 ## postgres
 SELECT * from pg_stats WHERE tablename LIKE '<prefix>%'; # statistics of tables
