@@ -163,3 +163,11 @@ jmeter -g test-result.jtl -o report/ # genereate html report in the report direc
 
 ## mysql | mariadb
 mysql -B -u <user> --password="<pwd>' -h <ip-address> -D "<database-name>" --disable-column-names --execute "select count(*) from <table-name>;"
+
+## add polish locale
+sudo update-locale LANG=pl_PL.UTF-8
+*** update-locale: Error: invalid locale settings:  LANG=pl_PL.UTF-8
+sudo locale-gen pl_PL
+sudo locale-gen pl_PL.UTF-8
+sudo update-locale
+sudo update-locale LANG=pl_PL.UTF-8
