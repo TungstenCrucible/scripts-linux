@@ -79,6 +79,12 @@ yum provides */sql.h # list packages containing certain file
 RUN echo "root:Docker!" | chpasswd          # change root user password
 RUN echo "Docker!" | passwd --stdin root    # change root user password
 
+## docker - add trusted Docker registry (GitHub)
+sudo -i
+mkdir -p /etc/docker/certs.d/ghcr.io
+openssl s_client -showcerts -connect ghcr.io:443 < /dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /etc/docker/certs.d/ghcr.io/ca.crt
+systemctl restart docker
+
 ## kubernetes
 # first arg is app name, second is namespace
 function w84pod { while [[ $(kubectl get pods -l app=$1 -n $2 -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') != "True" ]]; do echo "waiting for ruleloader" && sleep 5; done; }
